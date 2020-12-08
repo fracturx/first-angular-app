@@ -1,0 +1,143 @@
+@mixin grayscale_element($value) {
+  -webkit-filter: #{"grayscale(#{$value})"};
+  -moz-filter: #{"grayscale(#{$value})"};
+  filter:#{"grayscale(#{$value})"};
+}
+
+
+.navbar {
+  width: 5rem;
+  height: 100vh;
+  position: fixed;
+  background-color: #23232e;
+  transition: width 200ms ease;
+  z-index: 1;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  transition: height 200ms ease;
+}
+
+.nav-item {
+  width: 100%;
+  transition: height 200ms ease;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: #b6b6b6;
+  text-decoration: none;
+  @include grayscale_element(100%);
+  transition: 400ms;
+  overflow: hidden;
+}
+
+.navbar-nav ul {
+  display: none;
+  height: auto;
+
+}
+
+.dropdown{
+  position: relative;
+}
+
+.dropdown li {
+  display: none;
+}
+
+.navbar-nav li:hover > .dropdown li {
+  display: block;
+}
+
+.navbar-nav li:hover > .dropdown {
+  perspective: 1000px;
+}
+
+.navbar-nav li:hover >.dropdown li {
+  transform-style: top left;
+  opacity: 0;
+}
+
+.navbar-nav li:hover > .dropdown li:nth-child(1) {
+  animation: animate 300ms ease-in-out forwards;
+  animation-delay: 100ms;
+}
+
+.navbar-nav li:hover > .dropdown li:nth-child(2) {
+  animation: animate 300ms ease-in-out forwards;
+  animation-delay: 150ms;
+}
+
+@keyframes animate {
+  0% {
+      opacity: 0;
+      transform: rotateX(-90deg);
+  }
+
+  60% {
+      transform: rotateX(50deg);
+  }
+
+  100% {
+      opacity: 1;
+      transform: rotateX(0deg);
+  }
+}
+
+.navbar-nav li:hover ul {
+  display: block;
+  transition: all 200ms ease;
+}
+
+.link-text {
+  margin-left: 1rem;
+  color: #ececec;
+}
+
+.nav-link svg {
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0 1.5rem;
+
+}
+
+.nav-link:hover {
+  filter:grayscale(0%) opacity(1);
+  background: #141418;
+  color: #ececec;
+  transition: height 200ms ease;
+}
+
+.navbar:hover {
+  width: 16rem;
+}
+
+.nav-link:hover .link-text {
+  display: inline-flexbox;
+}
+
+.fa-secondary {
+  color: #E86ED2;
+}
+
+.fa-secondary {
+  transition: 200ms;
+}
+
+
+
+
+
+
+
+
